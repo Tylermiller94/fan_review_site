@@ -2,6 +2,25 @@
 <h3>Release Date: <%= @movie.release %> </h3>
 <h3>Description: <%= @movie.description %> </h3>
 
+
+<h4>User Reviews:</h4>
+
+<% if @movie.reviews.any? %>
+  <% @movie.reviews.each do |review| %>
+    <div class="container">
+      <h3><%= @movie.name %></h3>
+      <em> <%= review.author %> </em>
+      <p>Rating: <%= review.rating %> out of 5 </p>
+      <p> <%= review.content_body %> </p>
+    </div>
+  <% end %>
+<% else %>
+  <h3>There are currently no reviews for this movie.</h3>
+<% end %>
+
+<%= link_to "Add Review", new_movie_review_path(@movie) %>
+
+
 <%= link_to "Delete", movie_path(@movie), data: {
     confirm: "Remove permanently?",
     method: "delete"
