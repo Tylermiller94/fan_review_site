@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-    if @movie.update(subgenre_params)
+    if @movie.update(movie_params)
       flash[:notice] = "Movie has been added!"
       redirect_to movies_path
     else
@@ -25,6 +25,7 @@ class MoviesController < ApplicationController
 
   private
   def movie_params
-    params.require(:subgenre).permit(:name)
+    params.require(:movie).permit(:name, :release, :description)
+
   end
 end
