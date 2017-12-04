@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+BASIC INSTRUCTIONS
+* bundle install
+* rake db:create
+* rake db:migrate
+* rake db:seed
+* rake db:test:prepare
+* rails s
