@@ -10,17 +10,17 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
-  def show
-    @movie = Movie.find(params[:id])
-  end
-
   def new
     @movie = Movie.new
   end
 
+  def show
+    @movie = Movie.find(params[:id])
+  end
+
   def create
     @movie = Movie.new(movie_params)
-    if @movie.update(movie_params)
+    if @movie.save
       flash[:notice] = "Movie has been added!"
       redirect_to movies_path
     else
@@ -49,7 +49,7 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
-  private
+private
   def movie_params
     params.require(:movie).permit(:name, :release, :description)
   end
