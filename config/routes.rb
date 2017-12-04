@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root :to => 'movies#index'
+  root :to => 'movies#home'
   resources :movies do
     resources :reviews
   end

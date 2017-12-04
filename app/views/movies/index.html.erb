@@ -1,8 +1,8 @@
-<h1>Ultimate Movie Database</h1>
+<h1>ULTIMATE MOVIE DATABASE</h1>
 
 <ul>
   <% @movies.each do |movie| %>
-    <li><%= link_to movie.name, movie_path(movie) %> | <%= link_to "Edit", edit_movie_path(movie)%></li>
+    <li><%= link_to movie.name, movie_path(movie) %> | <button><%= link_to "Edit", edit_movie_path(movie)%></button></li>
   <% end %>
 </ul>
 

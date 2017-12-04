@@ -1,5 +1,11 @@
 class MoviesController < ApplicationController
 
+  def home
+    @most_reviewed = Movie.most_reviews
+    @usa_made = Movie.made_in_usa
+    @recent_movies = Movie.recently_added
+  end
+
   def index
     @movies = Movie.all
   end
@@ -39,12 +45,12 @@ class MoviesController < ApplicationController
   def destroy
     @movie = Movie.find(params[:id])
     @movie.destroy
+    flash[:notice] = "Movie Deleted"
     redirect_to movies_path
   end
 
   private
   def movie_params
     params.require(:movie).permit(:name, :release, :description)
-
   end
 end

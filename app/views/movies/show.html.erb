@@ -5,24 +5,19 @@
 
 <h4>User Reviews:</h4>
 
-<% if @movie.reviews.any? %>
   <% @movie.reviews.each do |review| %>
     <div class="container">
-      <h3><%= @movie.name %></h3>
       <em> <%= review.author %> </em>
       <p>Rating: <%= review.rating %> out of 5 </p>
       <p> <%= review.content_body %> </p>
-      <button class="btn btn-success"><%= link_to "Edit", edit_movie_review_path(@product, review) %></button>
     </div>
   <% end %>
-<% else %>
-  <h3>There are currently no reviews for this movie.</h3>
 <% end %>
 
 <%= link_to "Add Review", new_movie_review_path(@movie) %>
 
-<button><%= link_to "Delete", movie_path(@movie), data: {
-<button><%= link_to "Edit", edit_movie_path(@product) %></button>
-  confirm: "Remove permanently?",
-  method: "delete"
-} %> </button>
+
+<%= link_to "Delete", movie_path(@movie), data: {
+confirm: "Remove permanently?",
+method: "delete"
+} %>

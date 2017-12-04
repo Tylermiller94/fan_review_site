@@ -1,0 +1,35 @@
+<div class="containter">
+  <div class="panel-body">
+    <h1>ULTIMATE MOVIE DATABASE</h1>
+  </div>
+</div>
+<div class="container">
+  <h3>Most Reviewed Movie</h3>
+    <div class="panel-body">
+      <% if @most_reviewed %>
+      <h4> <%= link_to @most_reviewed.name, movie_path(@most_reviewed), class: 'movie' %></h4>
+      <% else %>
+      <h4>Currently no movies have reviews</h4>
+      <% end %>
+    </div>
+    <div class="panel-heading">
+      <h3>Recently Added</h3>
+    </div>
+    <div class="panel-body">
+      <% @recent_movies.each do |movie| %>
+      <h4><%= link_to movie.name, movie_path(movie), class: 'movie' %></h4>
+      <% end %>
+    </div>
+    <div class="panel-heading">
+      <h3>U.S movie Directory!</h3>
+    </div>
+    <div class="panel-body">
+    <% if @usa_made.any? %>
+      <% @usa_made.each do |movie| %>
+        <h4><%= link_to movie.name, movie_path(movie), class: 'movie' %></h4>
+      <% end %>
+      <% else %>
+      <h4>No movies from the U.S.</h4>
+    <% end %>
+  </div>
+</div>
