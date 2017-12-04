@@ -5,6 +5,22 @@ class ReviewsController < ApplicationController
     @review = @movie.reviews.new
   end
 
+  def edit
+    @movie = Movie.find(params[:movie_id])
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    @movie = Movie.find(params[:movie_id])
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      flash[:notice] = "Review Updated"
+      redirect_to movie_path(@product)
+    else
+      render :edit
+    end
+  end
+
   def create
     @movie = Movie.find(params[:movie_id])
     @review = @movie.reviews.new(review_params)

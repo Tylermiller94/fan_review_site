@@ -12,6 +12,7 @@
       <em> <%= review.author %> </em>
       <p>Rating: <%= review.rating %> out of 5 </p>
       <p> <%= review.content_body %> </p>
+      <button class="btn btn-success"><%= link_to "Edit", edit_movie_review_path(@product, review) %></button>
     </div>
   <% end %>
 <% else %>
@@ -20,8 +21,8 @@
 
 <%= link_to "Add Review", new_movie_review_path(@movie) %>
 
-
-<%= link_to "Delete", movie_path(@movie), data: {
-    confirm: "Remove permanently?",
-    method: "delete"
-  } %>
+<button><%= link_to "Delete", movie_path(@movie), data: {
+<button><%= link_to "Edit", edit_movie_path(@product) %></button>
+  confirm: "Remove permanently?",
+  method: "delete"
+} %> </button>
