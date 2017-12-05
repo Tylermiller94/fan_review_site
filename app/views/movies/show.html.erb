@@ -16,11 +16,11 @@
   <% end %>
 <% else %>
   <p>there are no reviews yet!</p>
-<% end %>f
+<% end %>
 
 <p><%= link_to "Add Review", new_movie_review_path(@movie) %></p>
 
 <button><%= link_to "Edit", edit_movie_path(@movie)%></button>
-<button><%= link_to "Delete", movie_path(@movie), :data {
+<button><%= link_to "Delete", movie_path(@movie), :data => {
 :confirm => "Remove permanently?",
-:method => "delete"} %></button>
+:method => "Delete"} %></button>
